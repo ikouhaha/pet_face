@@ -1,0 +1,15 @@
+dataset
+data
+logs
+*.jpg
+*.jpeg
+*.tiff
+*.jitf
+*.jfif
+*.cat
+*.zip
+*.pyc
+*.db
+*.png
+*.npy
+*.h5
