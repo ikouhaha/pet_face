@@ -1,22 +1,8 @@
-import tensorflow.keras as keras
-import tensorflow as tf
-
-import datetime
-from tensorflow.keras.layers import Input, Dense
-from tensorflow.keras.models import Model
-from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
-from tensorflow.keras.applications import mobilenet_v2
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from sklearn.model_selection import train_test_split
-import numpy as np
-import pandas as pd
 from Util import *
-import os
 
-
-config = tf.compat.v1.ConfigProto()
-config.gpu_options.allow_growth = True
-sess = tf.compat.v1.Session(config=config)
+# config = tf.compat.v1.ConfigProto()
+# config.gpu_options.allow_growth = True
+# sess = tf.compat.v1.Session(config=config)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 source_path = os.path.abspath(os.path.join(dir_path, os.pardir))
@@ -24,7 +10,7 @@ data_path = dir_path+"/dataset"
 
 img_size = 224
 
-mode = 'lmks' # [bbs, lmks]
+mode = 'bbs' # [bbs, lmks]
 if mode == 'bbs':
   output_size = 4
 elif mode == 'lmks':
@@ -82,6 +68,7 @@ model.summary()
 
 # training
 model.compile(optimizer=keras.optimizers.Adam(), loss='mse')
+
 
 model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
   validation_data=(x_test, y_test), verbose=1,
