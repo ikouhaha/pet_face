@@ -19,9 +19,9 @@ from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnP
 from tensorflow.keras.applications import mobilenet_v2
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.model_selection import train_test_split
-from minetorch.miner import Miner
-from minetorch.metrics import MultiClassesClassificationMetricWithLogic
-from minetorch.plugins.noise_detector import NoiseSampleDetector
-from minetorch.spreadsheet import GoogleSheet
-from torchvision import datasets, transforms
+# from minetorch.miner import Miner
+# from minetorch.metrics import MultiClassesClassificationMetricWithLogic
+# from minetorch.plugins.noise_detector import NoiseSampleDetector
+# from minetorch.spreadsheet import GoogleSheet
+# from torchvision import datasets, transforms
 #from minetorch.spreadsheet.GoogleSheet
