@@ -4,9 +4,7 @@ from Util import *
 # config.gpu_options.allow_growth = True
 # sess = tf.compat.v1.Session(config=config)
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-source_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-data_path = dir_path+"/dataset"
+data_path = dataset_path
 
 img_size = 224
 
@@ -70,7 +68,7 @@ model.summary()
 model.compile(optimizer=keras.optimizers.Adam(), loss='mse')
 
 
-model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
+hist = model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
   validation_data=(x_test, y_test), verbose=1,
   callbacks=[
     TensorBoard(log_dir='logs/%s' % (start_time)),
@@ -78,3 +76,19 @@ model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
     ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, verbose=1, mode='auto')
   ]
 )
+
+_, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12,4))
+ax1.plot(hist.history['loss'], label='loss')
+ax1.plot(hist.history['val_loss'], label='val_loss')
+ax1.legend()
+
+ax2.plot(hist.history['loss'], label='loss')
+ax2.plot(hist.history['val_loss'], label='val_loss')
+ax2.legend()
+ax2.set_ylim(0, .1)
+
+ax3.plot(hist.history['lr'], label='lr')
+ax3.legend()
+
+plt.tight_layout()
+plt.show()

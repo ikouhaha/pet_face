@@ -57,12 +57,23 @@ def resize_img(im,img_size):
       value=[0, 0, 0])
   return new_im, ratio, top, left    
 
-source_path = "./source/cats"
-dataset_path = "./dataset"
-model_path = "./models"
-result_path = "./result"
-sample_path = "./samples"
-logs_path = "./logs"
+
+if(os.path.exists("/content/drive")):
+    source_path = "./source/cats"
+    dataset_path = "./dataset"
+    model_path = "./models"
+    result_path = "./result"
+    sample_path = "./samples"
+    logs_path = "./logs" 
+else:
+    source_path = "/content/drive/MyDrive/CATSOURCE"
+    dataset_path = "./dataset"
+    model_path = "/content/drive/MyDrive/PET_FACE/models"
+    result_path = "./result"
+    sample_path = "./samples"
+    logs_path = "/content/drive/MyDrive/PET_FACE/logs"
+
+
 
 Path(source_path).mkdir(parents=True, exist_ok=True)
 Path(dataset_path).mkdir(parents=True, exist_ok=True)
