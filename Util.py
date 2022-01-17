@@ -1,10 +1,4 @@
-import datetime
-import numpy as np
-import math
-import cv2
-import PIL
-import PIL.ImageDraw
-import matplotlib.pyplot as plt
+from package import *
 
 def genFolderTime():
     return datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
@@ -12,31 +6,6 @@ def genFolderTime():
 def readNPY(path):
     return np.load(path,allow_pickle=True)
 
-def plot_images(indices, images, keypoints):
-    """Plot bunch of images with keypoint overlay
-    
-    Params:
-        indices - indices of images to plot, e.g. [0, 10, 20, ...]
-        images - np.ndarray with raw images, [batch_size, width, height, channel]
-        keypoints - np.ndarray with keypoints, [batch_size, num_keypoints, x, y]
-    """
-    _, axes = plt.subplots(nrows=1, ncols=len(indices), figsize=[12,4])
-    if len(indices) == 1: axes = [axes]
-
-    for i, idx in enumerate(indices):
-        img = PIL.Image.fromarray(images[idx])
-        kps = keypoints[idx]
-        axes[i].imshow(draw_keypoints(img, kps))
-        axes[i].axis('off')
-    
-    plt.show()  
-
-def draw_keypoints(img, keypoints, r=2, c='red'):
-    """Draw keypoints on PIL image"""
-    draw = PIL.ImageDraw.Draw(img)
-    for x, y in keypoints:
-        draw.ellipse([x-r, y-r, x+r, y+r], c)
-    return img    
 
 def load_keypoints(path):    
     """Load keypoints from .cat file
@@ -65,12 +34,6 @@ def scale_img_kps(image, keypoints, target_size):
     
     return image_new, keypoints_new
 
-def load_image_keypoints(image_path, keypoints_path, target_size):
-    image = PIL.Image.open(image_path)
-    keypoints = load_keypoints(keypoints_path)
-    image_new, keypoints_new = scale_img_kps(image, keypoints, target_size)
-    return image, keypoints, image_new, keypoints_new       
-
 def undo_preprocess_images(images_batch):
     tmp = images_batch
     tmp = (tmp + tmp.min()) / (tmp.max() - tmp.min())
@@ -93,3 +56,18 @@ def resize_img(im,img_size):
   new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
       value=[0, 0, 0])
   return new_im, ratio, top, left    
+
+
+source_path = "D:/IVE/source/cat"
+dataset_path = "./dataset"
+model_path = "./models"
+result_path = "./result"
+sample_path = "./samples"
+logs_path = "./logs"
+
+Path(dataset_path).mkdir(parents=True, exist_ok=True)
+Path(model_path).mkdir(parents=True, exist_ok=True)
+Path(result_path).mkdir(parents=True, exist_ok=True)
+Path(sample_path).mkdir(parents=True, exist_ok=True)
+Path(logs_path).mkdir(parents=True, exist_ok=True)
+
