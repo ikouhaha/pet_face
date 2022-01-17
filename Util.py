@@ -57,7 +57,7 @@ def resize_img(im,img_size):
       value=[0, 0, 0])
   return new_im, ratio, top, left    
 
-source_path = "./source"
+source_path = "./source/cats"
 dataset_path = "./dataset"
 model_path = "./models"
 result_path = "./result"

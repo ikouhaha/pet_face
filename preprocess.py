@@ -48,13 +48,12 @@ for dirs in os.listdir(source_path):
     dataset['bbs'].append(bb.flatten())
     dataset['filename'].append(img_filename)
 
-    for l in landmarks:
-      cv2.circle(img, center=tuple(l), radius=1, color=(255, 255, 255), thickness=2)
+    # for l in landmarks:
+    #   cv2.circle(img, center=tuple(l), radius=1, color=(255, 255, 255), thickness=2)
 
-      plt.imshow(img)
-      #plt.show()
-      # if cv2.waitKey(0) == ord('q'):
-      #   break
+    # plt.imshow(img)
+    # plt.show()
+
 
   np.save('dataset/%s.npy' % dirname, np.array(dataset))
 
