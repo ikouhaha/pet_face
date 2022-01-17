@@ -12,7 +12,7 @@ file_list = sorted(os.listdir(base_path))
 # this is most important thing
 glasses = cv2.imread('images/glasses.png', cv2.IMREAD_UNCHANGED)
 
-bbs_model_name = "models/bbs_1.h5"
+bbs_model_name = "models/model.h5"
 lmks_model_name = "models/lmks_1.h5"
 bbs_model = load_model(bbs_model_name)
 lmks_model = load_model(lmks_model_name)
@@ -100,7 +100,7 @@ for f in file_list:
   face_inputs = (face_img.astype('float32') / 255).reshape((1, img_size, img_size, 3))
 
   pred_lmks = lmks_model.predict(face_inputs)[0].reshape((-1, 2))
-  test_lmks = model.predict(img)
+  #test_lmks = model.predict(img)
 
   # compute landmark of original image
   new_lmks = ((pred_lmks - np.array([face_left, face_top])) / face_ratio).astype(np.int)

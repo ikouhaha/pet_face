@@ -4,8 +4,6 @@ from Util import *
 # config.gpu_options.allow_growth = True
 # sess = tf.compat.v1.Session(config=config)
 
-data_path = dataset_path
-
 img_size = 224
 
 mode = 'bbs' # [bbs, lmks]
@@ -22,10 +20,10 @@ dataList = []
 imgs = []
 modes = []
 
-for path in os.listdir(data_path):
+for path in os.listdir(dataset_path):
   if path.startswith('CAT_'):
     print(path)
-    data = readNPY(data_path+"/"+path)
+    data = readNPY(dataset_path+"/"+path)
     getImg = data.item().get('imgs')
     getMode = data.item().get(mode)
     imgs.extend(getImg)

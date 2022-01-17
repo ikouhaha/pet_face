@@ -3,11 +3,7 @@ from Util import *
 
 img_size = 224
 
-dataset = {
-  'imgs': [],
-  'lmks': [],
-  'bbs': []
-}
+
 
 for dirs in os.listdir(source_path):
   print(dirs)
@@ -15,6 +11,13 @@ for dirs in os.listdir(source_path):
   base_path = source_path+"/"+dirname
   file_list = sorted(os.listdir(base_path))
   random.shuffle(file_list)
+
+
+  dataset = {
+  'imgs': [],
+  'lmks': [],
+  'bbs': []
+  }
 
   for f in file_list:
     if '.cat' not in f:
