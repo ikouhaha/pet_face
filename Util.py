@@ -57,14 +57,14 @@ def resize_img(im,img_size):
       value=[0, 0, 0])
   return new_im, ratio, top, left    
 
-
-source_path = "D:/IVE/source/cat"
+source_path = "./source"
 dataset_path = "./dataset"
 model_path = "./models"
 result_path = "./result"
 sample_path = "./samples"
 logs_path = "./logs"
 
+Path(source_path).mkdir(parents=True, exist_ok=True)
 Path(dataset_path).mkdir(parents=True, exist_ok=True)
 Path(model_path).mkdir(parents=True, exist_ok=True)
 Path(result_path).mkdir(parents=True, exist_ok=True)

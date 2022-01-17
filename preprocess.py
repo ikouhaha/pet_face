@@ -2,6 +2,12 @@ from Util import *
 
 img_size = 224
 
+source_path = "D:/IVE/source/cat"
+if(len(sys.argv)>0):
+  source_path = sys.argv[0]
+
+
+
 for dirs in os.listdir(source_path):
   print(dirs)
   dirname = dirs
