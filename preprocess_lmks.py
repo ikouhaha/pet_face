@@ -1,11 +1,4 @@
-import random, sys
-import cv2, os
-import pandas as pd
-import numpy as np
 from Util import *
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
-source_path = os.path.abspath(os.path.join(dir_path, os.pardir)) + "/source/cat/"
 
 
 img_size = 224
@@ -16,11 +9,10 @@ dataset = {
   'bbs': []
 }
 
-
 for dirs in os.listdir(source_path):
   print(dirs)
   dirname = dirs
-  base_path = source_path+dirname
+  base_path = source_path+"/"+dirname
   file_list = sorted(os.listdir(base_path))
   random.shuffle(file_list)
 
