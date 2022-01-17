@@ -71,8 +71,8 @@ model.compile(optimizer=keras.optimizers.Adam(), loss='mse')
 hist = model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
   validation_data=(x_test, y_test), verbose=1,
   callbacks=[
-    TensorBoard(log_dir='logs/%s' % (start_time)),
-    ModelCheckpoint('./models/%s.h5' % (start_time), monitor='val_loss', verbose=1, save_best_only=True, mode='auto'),
+    TensorBoard(log_dir=logs_path+ '/' +start_time),
+    ModelCheckpoint(model_path+'/model.h5', monitor='val_loss', verbose=1, save_best_only=True, mode='auto'),
     ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, verbose=1, mode='auto')
   ]
 )
