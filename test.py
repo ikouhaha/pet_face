@@ -1,22 +1,23 @@
-import keras, sys, cv2, os
-from keras.models import Model, load_model
-import numpy as np
-import pandas as pd
-from math import atan2, degrees
-from matplotlib import pyplot as plt
+from Util import *
 
 img_size = 224
 base_path = 'samples'
 file_list = sorted(os.listdir(base_path))
 
+  
+shutil.rmtree(result_path,ignore_errors=True)
+Path(result_path).mkdir(parents=True, exist_ok=True)
+
 # this is most important thing
 glasses = cv2.imread('images/glasses.png', cv2.IMREAD_UNCHANGED)
 
-bbs_model_name = "models/model.h5"
-lmks_model_name = "models/lmks_1.h5"
+bbs_model_name = model_path+"/model.h5"
+lmks_model_name = model_path+"/lmk_model.h5"
+
+
 bbs_model = load_model(bbs_model_name)
 lmks_model = load_model(lmks_model_name)
-model = load_model("models/model.h5")
+
 
 def resize_img(im):
   old_size = im.shape[:2] # old_size is in (height, width) format
@@ -66,7 +67,7 @@ def angle_between(p1, p2):
 
 # testing
 for f in file_list:
-  if '.jpg' not in f:
+  if not f.lower().endswith(('.png', '.jpg')):
     continue
 
   img = cv2.imread(os.path.join(base_path, f))
@@ -126,8 +127,8 @@ for f in file_list:
   except:
     print('failed overlay image')
 
-  plt.imshow(ori_img)
-  plt.imshow(result_img)
+  #plt.imshow(ori_img)
+  #plt.imshow(result_img)
   filename, ext = os.path.splitext(f)
   cv2.imwrite('result/%s_lmks%s' % (filename, ext), ori_img)
   cv2.imwrite('result/%s_result%s' % (filename, ext), result_img)

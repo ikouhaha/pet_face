@@ -58,7 +58,9 @@ def resize_img(im,img_size):
   return new_im, ratio, top, left    
 
 
-if(not os.path.exists("/content/drive")):
+
+
+if(os.environ['COMPUTERNAME']=="LAPTOP-MEFC1PDG"):
     source_path = "./source/cats"
     dataset_path = "./dataset"
     model_path = "./models"
@@ -75,7 +77,8 @@ else:
     logs_path = "/content/drive/MyDrive/PET_FACE/logs"
     lmk_logs_path = "/content/drive/MyDrive/PET_FACE/lmk_logs" 
 
-
+shutil.rmtree(logs_path,ignore_errors=True)
+shutil.rmtree(lmk_logs_path,ignore_errors=True)
 
 Path(source_path).mkdir(parents=True, exist_ok=True)
 Path(dataset_path).mkdir(parents=True, exist_ok=True)

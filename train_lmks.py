@@ -25,7 +25,7 @@ all_images = np.array(imgs)
 all_modes = np.array(modes)
 
   
-x_train, x_test, y_train, y_test = train_test_split(all_images, all_modes, test_size=.2, shuffle=False)
+x_train, x_test, y_train, y_test = train_test_split(all_images, all_modes, test_size=0.15, shuffle=False)
 #test = np.concatenate((data_00.item().get('imgs'),data_01.item().get('imgs'),data_02.item().get('imgs'),data_03.item().get('imgs'),data_04.item().get('imgs'),data_05.item().get('imgs'),data_06.item().get('imgs')), axis=0)
 
 
