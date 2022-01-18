@@ -65,6 +65,7 @@ if(not os.path.exists("/content/drive")):
     result_path = "./result"
     sample_path = "./samples"
     logs_path = "./logs" 
+    lmk_logs_path = "./lmk_logs" 
 else:
     source_path = "./source/cats"
     dataset_path = "./dataset"
@@ -72,6 +73,7 @@ else:
     result_path = "/content/drive/MyDrive/PET_FACE/result"
     sample_path = "/content/drive/MyDrive/PET_FACE/samples"
     logs_path = "/content/drive/MyDrive/PET_FACE/logs"
+    lmk_logs_path = "./content/drive/MyDrive/PET_FACE/lmk_logs" 
 
 
 
@@ -81,5 +83,5 @@ Path(model_path).mkdir(parents=True, exist_ok=True)
 Path(result_path).mkdir(parents=True, exist_ok=True)
 Path(sample_path).mkdir(parents=True, exist_ok=True)
 Path(logs_path).mkdir(parents=True, exist_ok=True)
-
+Path(lmk_logs_path).mkdir(parents=True, exist_ok=True)
  
