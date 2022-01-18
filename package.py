@@ -8,6 +8,8 @@ from pathlib import Path
 import datetime
 import sys
 import tensorflow as tf
+import platform
+
 
 import tensorflow.keras as keras
 import tensorflow as tf

@@ -58,9 +58,7 @@ def resize_img(im,img_size):
   return new_im, ratio, top, left    
 
 
-
-
-if(os.environ['COMPUTERNAME']=="LAPTOP-MEFC1PDG"):
+if(platform.node()=="LAPTOP-MEFC1PDG"):
     source_path = "./source/cats"
     dataset_path = "./dataset"
     model_path = "./models"
