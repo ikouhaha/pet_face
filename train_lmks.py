@@ -10,7 +10,7 @@ elif mode == 'lmks':
 
 start_time = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
 
-imgs,lmks,bbs = genDataSetForbbs(source_path,img_size)
+imgs,lmks,bbs = genDataSetForLmks(source_path,img_size)
   
 all_images = np.array(imgs)
 all_lmks = np.array(lmks)
