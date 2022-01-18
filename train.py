@@ -33,7 +33,7 @@ all_images = np.array(imgs)
 all_modes = np.array(modes)
 
   
-x_train, x_test, y_train, y_test = train_test_split(all_images, all_modes, test_size=.2, shuffle=False)
+x_train, x_test, y_train, y_test = train_test_split(all_images, all_modes, test_size=0.15, shuffle=False)
 #test = np.concatenate((data_00.item().get('imgs'),data_01.item().get('imgs'),data_02.item().get('imgs'),data_03.item().get('imgs'),data_04.item().get('imgs'),data_05.item().get('imgs'),data_06.item().get('imgs')), axis=0)
 
 
@@ -63,10 +63,9 @@ model = Model(inputs=inputs, outputs=net)
 model.summary()
 
 # training
-model.compile(optimizer=keras.optimizers.Adam(), loss='mse')
+model.compile(optimizer=keras.optimizers.Adam(), loss='mse',metrics=['accuracy'])
 
-
-hist = model.fit(x_train, y_train, epochs=50, batch_size=32, shuffle=True,
+hist = model.fit(x_train, y_train, epochs=100, batch_size=32, shuffle=True,
   validation_data=(x_test, y_test), verbose=1,
   callbacks=[
     TensorBoard(log_dir=logs_path+ '/' +start_time),
