@@ -73,7 +73,7 @@ else:
     result_path = "/content/drive/MyDrive/PET_FACE/result"
     sample_path = "/content/drive/MyDrive/PET_FACE/samples"
     logs_path = "/content/drive/MyDrive/PET_FACE/logs"
-    lmk_logs_path = "./content/drive/MyDrive/PET_FACE/lmk_logs" 
+    lmk_logs_path = "/content/drive/MyDrive/PET_FACE/lmk_logs" 
 
 
 
