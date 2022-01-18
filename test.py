@@ -67,7 +67,7 @@ def angle_between(p1, p2):
 
 # testing
 for f in file_list:
-  if not f.lower().endswith(('.png', '.jpg')):
+  if not f.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
     continue
 
   img = cv2.imread(os.path.join(base_path, f))

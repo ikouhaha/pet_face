@@ -10,22 +10,13 @@ elif mode == 'lmks':
 
 start_time = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
 
-imgs = []
-modes = []
-for path in os.listdir(dataset_path):
-  if path.startswith('lmks_CAT_'):
-    print(path)
-    data = readNPY(dataset_path+"/"+path)
-    getImg = data.item().get('imgs')
-    getMode = data.item().get(mode)
-    imgs.extend(getImg)
-    modes.extend(getMode)
+imgs,lmks,bbs = genDataSetForbbs(source_path,img_size)
   
 all_images = np.array(imgs)
-all_modes = np.array(modes)
+all_lmks = np.array(lmks)
 
   
-x_train, x_test, y_train, y_test = train_test_split(all_images, all_modes, test_size=0.15, shuffle=False)
+x_train, x_test, y_train, y_test = train_test_split(all_images, all_lmks, test_size=0.15, shuffle=False)
 #test = np.concatenate((data_00.item().get('imgs'),data_01.item().get('imgs'),data_02.item().get('imgs'),data_03.item().get('imgs'),data_04.item().get('imgs'),data_05.item().get('imgs'),data_06.item().get('imgs')), axis=0)
 
 
