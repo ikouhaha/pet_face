@@ -140,6 +140,15 @@ def genDataSetForLmks(source_path,img_size):
 
     return (imgs,lmks,bbs)
 
+source_path = ""
+dataset_path = ""
+model_path = ""
+result_path = ""
+sample_path = ""
+logs_path = "" 
+lmk_logs_path = ""
+images_path = "" 
+
 if(platform.node()=="LAPTOP-MEFC1PDG"):
     source_path = "./source/cats"
     dataset_path = "./dataset"
@@ -148,7 +157,7 @@ if(platform.node()=="LAPTOP-MEFC1PDG"):
     sample_path = "./samples"
     logs_path = "./logs" 
     lmk_logs_path = "./lmk_logs"
-    images_path = "./images/" 
+    images_path = "./images" 
 else:
     source_path = "./source/cats"
     dataset_path = "./dataset"
