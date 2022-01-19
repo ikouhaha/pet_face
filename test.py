@@ -8,7 +8,7 @@ shutil.rmtree(result_path,ignore_errors=True)
 Path(result_path).mkdir(parents=True, exist_ok=True)
 
 # this is most important thing
-glasses = cv2.imread('images/glasses.png', cv2.IMREAD_UNCHANGED)
+glasses = cv2.imread(images_path, cv2.IMREAD_UNCHANGED)
 
 bbs_model_name = model_path+"/model.h5"
 lmks_model_name = model_path+"/lmk_model.h5"
@@ -69,7 +69,7 @@ for f in file_list:
   if not f.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
     continue
 
-  img = cv2.imread(os.path.join(base_path, f))
+  img = cv2.imread(os.path.join(sample_path, f))
 
   
   ori_img = img.copy()

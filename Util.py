@@ -147,7 +147,8 @@ if(platform.node()=="LAPTOP-MEFC1PDG"):
     result_path = "./result"
     sample_path = "./samples"
     logs_path = "./logs" 
-    lmk_logs_path = "./lmk_logs" 
+    lmk_logs_path = "./lmk_logs"
+    images_path = "./images/" 
 else:
     source_path = "./source/cats"
     dataset_path = "./dataset"
@@ -156,6 +157,7 @@ else:
     sample_path = "/content/drive/MyDrive/PET_FACE/samples"
     logs_path = "/content/drive/MyDrive/PET_FACE/logs"
     lmk_logs_path = "/content/drive/MyDrive/PET_FACE/lmk_logs" 
+    images_path = "/content/drive/MyDrive/PET_FACE/images" 
 
 shutil.rmtree(logs_path,ignore_errors=True)
 shutil.rmtree(lmk_logs_path,ignore_errors=True)
@@ -167,4 +169,5 @@ Path(result_path).mkdir(parents=True, exist_ok=True)
 Path(sample_path).mkdir(parents=True, exist_ok=True)
 Path(logs_path).mkdir(parents=True, exist_ok=True)
 Path(lmk_logs_path).mkdir(parents=True, exist_ok=True)
+Path(images_path).mkdir(parents=True, exist_ok=True)
  
