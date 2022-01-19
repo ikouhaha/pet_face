@@ -1,8 +1,7 @@
 from Util import *
 
 img_size = 224
-base_path = 'samples'
-file_list = sorted(os.listdir(base_path))
+file_list = sorted(os.listdir(sample_path))
 
   
 shutil.rmtree(result_path,ignore_errors=True)
@@ -107,6 +106,7 @@ for f in file_list:
   new_lmks = ((pred_lmks - np.array([face_left, face_top])) / face_ratio).astype(np.int)
   ori_lmks = new_lmks + new_bb[0]
 
+  
   # visualize
   cv2.rectangle(ori_img, pt1=tuple(ori_bb[0]), pt2=tuple(ori_bb[1]), color=(255, 255, 255), thickness=2)
 

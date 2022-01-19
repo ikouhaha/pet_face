@@ -14,3 +14,5 @@ logs
 *.npy
 *.h5
 credentials.json
+token.json
+models/123.txt
